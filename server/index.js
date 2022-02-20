@@ -79,6 +79,14 @@ app.get("/singleFeedback/:id", (req, res) => {
     res.send(result);
   });
 });
+//update single feedback
+app.get("/updateFeedback/:id", (req, res) => {
+  const sql = `SELECT * FROM userFeedback WHERE id = ${req.params.id}`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
