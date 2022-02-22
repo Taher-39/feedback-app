@@ -17,7 +17,7 @@ const FeedbackForm = () => {
 
     const submitHandler = (e) => {
       e.preventDefault();
-      axios.post("http://localhost:3001/insertFeedback", { name, feedback, rating })
+      axios.post("http://localhost:5000/insertFeedback", { name, feedback, rating })
 
         setFeedback("");
         setName("");
@@ -26,7 +26,7 @@ const FeedbackForm = () => {
     
     const updateHandler = (e) => {
       e.preventDefault();
-      axios.put(`http://localhost:3001/updateFeedback/${singleFeedback[0]?.id}`, { name, feedback, rating }).then((result) => {
+      axios.put(`http://localhost:5000/updateFeedback/${singleFeedback[0]?.id}`, { name, feedback, rating }).then((result) => {
         if(result) {
           setEditClick(false)
         }

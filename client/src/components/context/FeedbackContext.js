@@ -11,7 +11,7 @@ export const FeedbackProvider = ({ children }) => {
   //get Total feedback
   useEffect(() => {
     axios
-      .get("http://localhost:3001/getTotalFeedback")
+      .get("http://localhost:5000/getTotalFeedback")
       .then((result) => setTotalFeedback(result.data));
     if (!totalFeedback || totalFeedback.length === 0) {
       return <p>No feedback yet.</p>;
@@ -21,7 +21,7 @@ export const FeedbackProvider = ({ children }) => {
   //get single product for update
   const singleProductHandler = (id) => {
     axios
-      .get(`http://localhost:3001/singleFeedback/${id}`)
+      .get(`http://localhost:5000/singleFeedback/${id}`)
       .then((data) => setSingleFeedback(data.data));
 
     setEditClick(true);
@@ -30,7 +30,7 @@ export const FeedbackProvider = ({ children }) => {
   //delete handler
   const handleDelete = (id) => {
     if (window.confirm("Sure for delete feedback..?")) {
-      axios.get(`http://localhost:3001/deleteFeedback/${id}`);
+      axios.get(`http://localhost:5000/deleteFeedback/${id}`);
     }
   };
 
