@@ -10,4 +10,4 @@ npm start //for client
 npm run start-dev //for server
 ```
 
-![feedbakImg](../feedback-app/client/src/imgs/feedbackImg.png)
+![feedbakImg](./client/src/imgs/feedbackImg.png)
