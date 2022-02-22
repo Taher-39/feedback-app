@@ -1,10 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react'
 import { useContext } from 'react';
 import FeedbackContext from "./context/FeedbackContext"
 
 const FeedBackItem = ({item}) => {
   const { handleUpdate } = useContext(FeedbackContext)
+
   const handleDelete = (id) => {
     if(window.confirm("Sure for delete feedback..?")) {
       axios.get(`http://localhost:3001/deleteFeedback/${id}`)

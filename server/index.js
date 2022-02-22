@@ -2,12 +2,12 @@ import express from "express";
 import mysql from "mysql";
 import cors from "cors";
 const app = express();
-const port = 3001;
+const port = 3001 || 5000;
 
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Connected");
+  res.send("Connected From feedback server");
 });
 
 //connect with mysql
@@ -80,9 +80,10 @@ app.get("/singleFeedback/:id", (req, res) => {
   });
 });
 //update single feedback
-app.get("/updateFeedback/:id", (req, res) => {
-  const sql = `SELECT * FROM userFeedback WHERE id = ${req.params.id}`;
-  db.query(sql, (err, result) => {
+app.put("/updateFeedback/:id", (req, res) => {
+  const { name, feedback, rating } = req.body;
+  const sql = `UPDATE userFeedback SET name = ?, feedback = ?,  rating = ? WHERE id = ${req.params.id}`;
+  db.query(sql, [name, feedback, rating], (err, result) => {
     if (err) throw err;
     res.send(result);
   });
