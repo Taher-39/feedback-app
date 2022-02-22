@@ -4,9 +4,8 @@ import FeedBackItem from './FeedBackItem'
 
 const FeedbackList = () => {
   const { totalFeedback } = useContext(FeedbackContext)
-  
   return (
-    <div className='feedback-list'>
+    <div className='row' style={{marginLeft: "30px"}}>
         {
             totalFeedback.map((item) => (
                 <FeedBackItem key={item.id} item={item} />

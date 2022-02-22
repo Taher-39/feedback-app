@@ -7,7 +7,10 @@ const App = () => {
   return (
     <FeedbackProvider>
       <Header />
-      <div className="container">
+      <div
+        className="container bg-dark text-light rounded"
+        style={{ marginBottom: "30px", paddingBottom: "80px" }}
+      >
         <FeedbackForm />
         <FeedbackList />
       </div>
